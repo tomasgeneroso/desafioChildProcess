@@ -1,0 +1,15 @@
+<%- include('head')%>
+    <div>
+        <h1 id="welcome">LOGIN</h1>
+        <form action="/" method="post" >
+            <input id="username" name="username" type="email" placeholder="Enter your email" >
+            <input id="password" name="password" type="text" placeholder="Enter your password" >
+            <input type="submit" onclick="location.href='/bienvenido'" id="login"value="LOG IN">
+        </form>
+        <div>
+            <h2>Are not registered?</h2>
+            <input type="submit" onclick="location.href='/register'" id="login"value="REGISTER">
+        </div>
+    </div>
+    <script src="../app.js"></script>
+<%- include('footer')%>
