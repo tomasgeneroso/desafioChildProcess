@@ -4,7 +4,7 @@ const config=require('./config.js')
 
 //CHILD PROCESS
 let {fork}=require('child_process')
-let child_process=fork('./childProcess.js')
+let child_process=fork('./src/childProcess.js')
 //--------------
 
 const mongoose=require('mongoose')
@@ -19,6 +19,7 @@ const MongoStore = require('connect-mongo')
 const minimist=require('minimist')
 const args=minimist(process.argv.slice(2))
 const PORT=args._[0]
+
 //----------------
 
 
@@ -203,7 +204,8 @@ app.get('/api/random/:num',(req,res)=>{
         console.log('ESTE ES EL NUMERO'+data)
         child_process.send(data)
         child_process.on('message',data=>{
-            res.send('Los numeros generados son: '+data.res)
+            console.log(data)
+            res.send('Los numeros generados son: '+JSON.stringify(data.res))
         })
     } catch (error) {
         console.log(error)

@@ -1,6 +1,6 @@
 console.log('SOY EL HIJO')
 let getRandoms=(data)=>{
-    if(data=0){
+    if(data==0){
         //generar 100.000.000 numeros
         let objeto={}
         for (let j=0;j<=100000000;j++){
@@ -11,6 +11,7 @@ let getRandoms=(data)=>{
                 objeto[random]=1
             }
         }
+        return objeto
     }else{
         //calcular un cantidad de números aleatorios en el rango del 1 al 1000 especificada por parámetros de consulta (query).
         //El dato devuelto al frontend será un objeto que contendrá como claves los números random generados junto a la cantidad 
@@ -24,8 +25,9 @@ let getRandoms=(data)=>{
                 objeto[random]=1
             }
         }
+        return objeto
     }
-    return objeto
+    
 }
 
 process.on('message',data=>{
